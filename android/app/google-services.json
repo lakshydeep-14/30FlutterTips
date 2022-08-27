@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "612258289358",
+    "project_id": "flutter30tips",
+    "storage_bucket": "flutter30tips.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612258289358:android:b88492d1454f0baf5e229f",
+        "android_client_info": {
+          "package_name": "com.example.flutter_30_tips"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612258289358-ajhld0i8lbmqkl6hi23rk1kgk24osgeq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-2wwrvzD0hz2J40-FVRxq16FdkwnkjzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612258289358-ajhld0i8lbmqkl6hi23rk1kgk24osgeq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
