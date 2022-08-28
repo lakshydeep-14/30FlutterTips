@@ -5,18 +5,11 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 
 class ChatProvider extends GetxController {
-  // final SharedPreferences prefs;
   final FirebaseFirestore firebaseFirestore;
   final FirebaseStorage firebaseStorage;
 
   ChatProvider(
-      {required this.firebaseFirestore,
-      //required this.prefs,
-      required this.firebaseStorage});
-
-  // String? getPref(String key) {
-  //   return prefs.getString(key);
-  // }
+      {required this.firebaseFirestore, required this.firebaseStorage});
 
   UploadTask uploadFile(File image, String fileName) {
     Reference reference = firebaseStorage.ref().child(fileName);

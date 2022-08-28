@@ -19,13 +19,9 @@ class UserList extends StatefulWidget {
 class _UserListState extends State<UserList> {
   Stream<List<QueryDocumentSnapshot<Object?>>> _stream() async* {
     List<QueryDocumentSnapshot<Object?>> matchedData = [];
-
     await FirebaseFirestore.instance.collection('chat').get().then((value) {
       matchedData = value.docs.toList();
-
-      //return matchedData;
     });
-
     yield matchedData;
   }
 
@@ -34,7 +30,6 @@ class _UserListState extends State<UserList> {
     // TODO: implement initState
     super.initState();
     _stream();
-    //abc();
   }
 
   @override
@@ -58,9 +53,7 @@ class _UserListState extends State<UserList> {
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) {
                       return Center(
-                        child: CircularProgressIndicator(
-                            //valueColor: AlwaysStoppedAnimation<Color>(themeColor),
-                            ),
+                        child: CircularProgressIndicator(),
                       );
                     } else {
                       return snapshot.data!.isEmpty
@@ -73,9 +66,6 @@ class _UserListState extends State<UserList> {
                                 if (snapshot.data![index] == null) {
                                   return SizedBox();
                                 } else {
-                                  // if (snapshot.data![index]["id"] == profileController.userC.id) {
-                                  //   return SizedBox.shrink();
-                                  // }
                                   return GestureDetector(
                                     onTap: () async {
                                       await Navigator.of(context).push(
@@ -85,9 +75,6 @@ class _UserListState extends State<UserList> {
                                           ),
                                         ),
                                       );
-                                      // Get.to(ChatDetailPage(
-                                      //   data: snapshot.data![index],
-                                      // ));
                                     },
                                     child: Container(
                                         color:
@@ -153,9 +140,6 @@ class _UserListState extends State<UserList> {
                   },
                 ),
               ),
-              // ListUserList(
-              //   text: '',
-              // ),
             ],
           ),
         )));

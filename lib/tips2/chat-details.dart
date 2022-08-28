@@ -6,17 +6,12 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:intl/intl.dart';
 import '../home.dart';
 import 'chatController.dart';
-import 'dart:io';
 
 class ChatDetailPage extends StatefulWidget {
   final QueryDocumentSnapshot<Object?> data;
-
-  // final Map<String, dynamic> data;
-
   const ChatDetailPage({
     Key? key,
     required this.data,
@@ -39,21 +34,9 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   Stream<QuerySnapshot>? chatMessageStream;
   final ScrollController _scrollController = ScrollController();
   String groupChatId = "";
-  File? imageFile;
   bool isShowSticker = false;
-  String imageUrl = "", audioURL = "";
   final FocusNode focusNode = FocusNode();
   String currentUserId = "";
-
-  Future<bool> checkPermission() async {
-    if (!await Permission.microphone.isGranted) {
-      PermissionStatus status = await Permission.microphone.request();
-      if (status != PermissionStatus.granted) {
-        return false;
-      }
-    }
-    return true;
-  }
 
   void readLocal() async {
     var a = await FirebaseFirestore.instance.collection('chat').get();
@@ -69,7 +52,6 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
     } else {
       groupChatId = '$peerId-$currentUserId';
     }
-
     chatProvider.updateDataFirestore(
       'chat',
       currentUserId,
@@ -175,8 +157,6 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
           focusNode: focusNode,
           decoration: InputDecoration(
               suffixIcon: Container(
-                //color: mainColor.withOpacity(0.11),
-                //width: 100,
                 margin: EdgeInsets.symmetric(horizontal: 8),
                 child: GestureDetector(
                   child: Icon(Icons.send, color: mainColor),
@@ -234,17 +214,13 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                   }
                 } else {
                   return Center(
-                    child: CircularProgressIndicator(
-                        //color: Colors.blue,
-                        ),
+                    child: CircularProgressIndicator(),
                   );
                 }
               },
             )
           : Center(
-              child: CircularProgressIndicator(
-                  // color: Colors.blue,
-                  ),
+              child: CircularProgressIndicator(),
             ),
     );
   }
