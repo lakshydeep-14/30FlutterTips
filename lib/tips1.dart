@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_30_tips/home.dart';
 import 'package:get/get.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -22,6 +23,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: customAppBar("Tips 1"),
         resizeToAvoidBottomInset: false,
         body: Column(
           children: [
@@ -70,7 +72,7 @@ class _SearchScreenState extends State<SearchScreen> {
       width: double.infinity,
       padding: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-        color: const Color(0xff8e412e),
+        color: mainColor,
       ),
       child: Stack(
         alignment: Alignment.center,
@@ -144,7 +146,9 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Future<void> getSearchResult() async {
     _results.clear();
-    var data = await FirebaseFirestore.instance.collection('searchList').get();
+    var data = await FirebaseFirestore.instance
+        .collection('searchList')
+        .get(); // you can use here api in similar way
     for (var e in data.docs) {
       if (e['name'].toString().toLowerCase().contains(query.toLowerCase())) {
         _results.add(e);
