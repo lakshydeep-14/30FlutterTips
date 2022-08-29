@@ -5,12 +5,14 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_30_tips/home.dart';
+import 'package:flutter_30_tips/tips3/image_chat.dart';
 import 'package:get/get.dart';
 
 import 'chat-details.dart';
 
 class UserList extends StatefulWidget {
-  const UserList({Key? key}) : super(key: key);
+  final String tips;
+  const UserList({Key? key, required this.tips}) : super(key: key);
 
   @override
   _UserListState createState() => _UserListState();
@@ -70,9 +72,14 @@ class _UserListState extends State<UserList> {
                                     onTap: () async {
                                       await Navigator.of(context).push(
                                         MaterialPageRoute(
-                                          builder: (context) => ChatDetailPage(
-                                            data: snapshot.data![index],
-                                          ),
+                                          builder: (context) => widget.tips ==
+                                                  "2"
+                                              ? ChatDetailPage(
+                                                  data: snapshot.data![index],
+                                                )
+                                              : ImageChat(
+                                                  data: snapshot.data![index],
+                                                ),
                                         ),
                                       );
                                     },

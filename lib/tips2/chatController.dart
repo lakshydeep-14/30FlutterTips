@@ -69,7 +69,7 @@ class ChatProvider extends GetxController {
 
 class TypeMessage {
   static const text = 0;
-  // static const image = 1;
+  static const image = 1;
   // static const sticker = 2;
   // static const audio = 3;
 }
