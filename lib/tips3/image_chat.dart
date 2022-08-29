@@ -122,7 +122,6 @@ class _ImageChatState extends State<ImageChat> {
               isLoading ? Text("Uploading...") : buildInput(),
             ],
           ),
-          // buildLoading()
         ],
       ),
     );

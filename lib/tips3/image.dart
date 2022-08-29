@@ -18,7 +18,6 @@ class _ImageContainerState extends State<ImageContainer> {
     return Container(
       padding: const EdgeInsets.all(2),
       decoration: BoxDecoration(
-        //color: mainColor,
         border: Border.all(color: mainColor),
         borderRadius: BorderRadius.all(
           Radius.circular(8),
