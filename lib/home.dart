@@ -1,13 +1,27 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_30_tips/tips1.dart';
+import 'package:flutter_30_tips/tips1/tips1.dart';
 import 'package:flutter_30_tips/tips2/userList.dart';
 import 'package:get/get.dart';
 
 final Color mainColor = Color(0xff8e412e);
+
+final List<TIPS> tipsList = [
+  TIPS(label: "1", title: "Search In Flutter", go: SearchScreen()),
+  TIPS(
+      label: "2",
+      title: "Chatting with Firebase",
+      go: UserList(
+        tips: "2",
+      )),
+  TIPS(
+      label: "3",
+      title: "Chatting with Firebase Including Image",
+      go: UserList(
+        tips: "3",
+      )),
+];
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -23,9 +37,9 @@ class _HomeState extends State<Home> {
       appBar:
           customAppBar("Flutter 30 Tips\nwith\nLakshydeep Vikram", back: false),
       body: ListView.separated(
-        itemCount: _list.length,
+        itemCount: tipsList.length,
         itemBuilder: (_, i) {
-          return tips(_list[i].label!, _list[i].title!, _list[i].go!);
+          return tips(tipsList[i].label!, tipsList[i].title!, tipsList[i].go!);
         },
         separatorBuilder: (_, i) {
           return Container(
@@ -38,10 +52,6 @@ class _HomeState extends State<Home> {
     );
   }
 
-  final List<TIPS> _list = [
-    TIPS(label: "1", title: "Search In Flutter", go: SearchScreen()),
-    TIPS(label: "2", title: "Chatting with Firebase", go: UserList()),
-  ];
   Widget tips(String label, String title, Widget go) {
     return ListTile(
       title: Text(
