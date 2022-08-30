@@ -21,6 +21,12 @@ final List<TIPS> tipsList = [
       go: UserList(
         tips: "3",
       )),
+  TIPS(
+      label: "4",
+      title: "Chatting with Firebase Including Voice",
+      go: UserList(
+        tips: "4",
+      )),
 ];
 
 class Home extends StatefulWidget {
