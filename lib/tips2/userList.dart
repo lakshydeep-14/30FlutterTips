@@ -8,6 +8,7 @@ import 'package:flutter_30_tips/home.dart';
 import 'package:flutter_30_tips/tips3/image_chat.dart';
 import 'package:get/get.dart';
 
+import '../tips4/voice_chat.dart';
 import 'chat-details.dart';
 
 class UserList extends StatefulWidget {
@@ -77,9 +78,15 @@ class _UserListState extends State<UserList> {
                                               ? ChatDetailPage(
                                                   data: snapshot.data![index],
                                                 )
-                                              : ImageChat(
-                                                  data: snapshot.data![index],
-                                                ),
+                                              : widget.tips == "4"
+                                                  ? VoiceChat(
+                                                      data:
+                                                          snapshot.data![index],
+                                                    )
+                                                  : ImageChat(
+                                                      data:
+                                                          snapshot.data![index],
+                                                    ),
                                         ),
                                       );
                                     },
