@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_30_tips/tips1/tips1.dart';
 import 'package:flutter_30_tips/tips2/userList.dart';
+import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:get/get.dart';
 
 final Color mainColor = Color(0xff8e412e);
@@ -27,6 +28,7 @@ final List<TIPS> tipsList = [
       go: UserList(
         tips: "4",
       )),
+  TIPS(label: "5", title: "Show User Online/offline", go: Online()),
 ];
 
 class Home extends StatefulWidget {
