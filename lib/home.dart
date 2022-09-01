@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_30_tips/tips1/tips1.dart';
 import 'package:flutter_30_tips/tips2/userList.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
+import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
 import 'package:get/get.dart';
 
 final Color mainColor = Color(0xff8e412e);
@@ -29,6 +30,10 @@ final List<TIPS> tipsList = [
         tips: "4",
       )),
   TIPS(label: "5", title: "Show User Online/offline", go: Online()),
+  TIPS(
+      label: "6",
+      title: "Search Suggestion With TextField",
+      go: SearchSuggestion()),
 ];
 
 class Home extends StatefulWidget {
