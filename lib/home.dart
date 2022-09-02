@@ -5,6 +5,7 @@ import 'package:flutter_30_tips/tips1/tips1.dart';
 import 'package:flutter_30_tips/tips2/userList.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
+import 'package:flutter_30_tips/tips7/textformValidation.dart';
 import 'package:get/get.dart';
 
 final Color mainColor = Color(0xff8e412e);
@@ -34,6 +35,7 @@ final List<TIPS> tipsList = [
       label: "6",
       title: "Search Suggestion With TextField",
       go: SearchSuggestion()),
+  TIPS(label: "7", title: "TextFormField Validation", go: TextFormValidation()),
 ];
 
 class Home extends StatefulWidget {
