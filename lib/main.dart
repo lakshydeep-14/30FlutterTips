@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_30_tips/home.dart';
+import 'package:flutter_30_tips/tips8/text_theme.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData().copyWith(
+        textTheme: AppTextStyle.textTheme,
+      ),
       home: Home(),
     );
   }

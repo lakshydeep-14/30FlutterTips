@@ -6,6 +6,7 @@ import 'package:flutter_30_tips/tips2/userList.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
 import 'package:flutter_30_tips/tips7/textformValidation.dart';
+import 'package:flutter_30_tips/tips8/showCase.dart';
 import 'package:get/get.dart';
 
 final Color mainColor = Color(0xff8e412e);
@@ -36,6 +37,7 @@ final List<TIPS> tipsList = [
       title: "Search Suggestion With TextField",
       go: SearchSuggestion()),
   TIPS(label: "7", title: "TextFormField Validation", go: TextFormValidation()),
+  TIPS(label: "8", title: "TextTheme In Flutter", go: MyWidget()),
 ];
 
 class Home extends StatefulWidget {
@@ -71,7 +73,8 @@ class _HomeState extends State<Home> {
     return ListTile(
       title: Text(
         "Flutter Tips $label",
-        style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+        style: TextStyle(
+            fontWeight: FontWeight.w500, fontSize: 20, color: Colors.black),
       ),
       trailing: Text(
         "FT $label",

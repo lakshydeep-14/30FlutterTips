@@ -43,6 +43,7 @@ dependencies:
   audioplayers: null
   path_provider:
   sizer:
+  google_fonts: ^3.0.1
 
 dev_dependencies:
 
