@@ -210,7 +210,11 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                       controller: _scrollController,
                     );
                   } else {
-                    return Center(child: Text("No message here yet..."));
+                    return Center(
+                        child: Text(
+                      "No message here yet...",
+                      style: TextStyle(color: Colors.black),
+                    ));
                   }
                 } else {
                   return Center(

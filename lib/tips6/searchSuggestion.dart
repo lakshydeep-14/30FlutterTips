@@ -31,6 +31,7 @@ class _SearchSuggestionState extends State<SearchSuggestion> {
               return TextFormField(
                 controller: textEditingController,
                 focusNode: focusNode,
+                style: TextStyle(color: Colors.black),
                 onFieldSubmitted: (value) => onFieldSubmitted,
                 decoration: InputDecoration(
                     hintText: "Search and see suggestion",

@@ -48,7 +48,10 @@ class _UserListState extends State<UserList> {
             children: [
               Text(
                 "UserList",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
               ),
               Expanded(
                 child: StreamBuilder<List<QueryDocumentSnapshot<Object?>>>(

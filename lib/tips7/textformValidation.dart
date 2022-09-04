@@ -35,10 +35,10 @@ class _TextFormValidationState extends State<TextFormValidation> {
             validator: (value) => requiredText(value),
             cursorHeight: 36,
             style: const TextStyle(
-              fontSize: 36,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 1.5,
-            ),
+                fontSize: 36,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 1.5,
+                color: Colors.black),
             onEditingComplete: () {
               FocusScope.of(context).unfocus();
             },

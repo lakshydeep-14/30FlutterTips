@@ -38,6 +38,11 @@ class _OnlineState extends State<Online> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: customAppBar("Tips 5"), body: Center(child: Text("Online")));
+        appBar: customAppBar("Tips 5"),
+        body: Center(
+            child: Text(
+          "Online",
+          style: TextStyle(color: Colors.black),
+        )));
   }
 }

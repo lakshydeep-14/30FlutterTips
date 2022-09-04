@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  audioplayers: null
   bot_toast: ^4.0.3
   cloud_firestore: null
   cupertino_icons: ^1.0.2
@@ -36,22 +37,17 @@ dependencies:
     sdk: flutter
   fluttertoast: ^8.0.9
   get: null
+  google_fonts: ^3.0.1
   image_picker: ^0.8.5+3
   intl: ^0.17.0
+  path_provider: null
   permission_handler: ^10.0.0
   record_mp3: ^3.0.0
-  audioplayers: null
-  path_provider:
-  sizer:
-  google_fonts: ^3.0.1
+  sizer: null
+  webview_flutter: ^3.0.4
+  font_awesome_flutter: ^10.1.0
 
 dev_dependencies:
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter

@@ -47,7 +47,13 @@ class _SearchScreenState extends State<SearchScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [Icon(Icons.search), Text('Enter Search Term')],
+          children: [
+            Icon(Icons.search),
+            Text(
+              'Enter Search Term',
+              style: TextStyle(color: Colors.black),
+            )
+          ],
         ),
       );
     }
@@ -58,8 +64,14 @@ class _SearchScreenState extends State<SearchScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text('Item Not Found!'),
-              Text('Try searching again'),
+              Text(
+                'Item Not Found!',
+                style: TextStyle(color: Colors.black),
+              ),
+              Text(
+                'Try searching again',
+                style: TextStyle(color: Colors.black),
+              ),
             ]),
       );
     }
@@ -91,7 +103,10 @@ class _SearchScreenState extends State<SearchScreen> {
                           fontWeight: FontWeight.bold),
                       decoration: InputDecoration(
                         hintText: 'Type Your Search',
-                        hintStyle: TextStyle(color: Colors.white, fontSize: 20),
+                        hintStyle: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
                         contentPadding:
                             const EdgeInsets.only(bottom: 0, top: 15),
                         enabledBorder: UnderlineInputBorder(
@@ -179,7 +194,10 @@ class SearchBody extends StatelessWidget {
         //separatorBuilder: (context, index) => Divider(),
         itemBuilder: (_, i) {
           return ListTile(
-            title: Text(result[i]['name']),
+            title: Text(
+              result[i]['name'],
+              style: TextStyle(color: Colors.black),
+            ),
           );
         });
   }

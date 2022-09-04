@@ -199,9 +199,15 @@ class _VoiceChatState extends State<VoiceChat> {
               buildListMessage(),
               Obx(
                 () => audioController.isSending.value
-                    ? Text("Uploading Audio...")
+                    ? Text(
+                        "Uploading Audio...",
+                        style: TextStyle(color: Colors.black),
+                      )
                     : isLoading
-                        ? Text("Uploading Image...")
+                        ? Text(
+                            "Uploading Image...",
+                            style: TextStyle(color: Colors.black),
+                          )
                         : buildInput(),
               )
             ],
@@ -380,7 +386,11 @@ class _VoiceChatState extends State<VoiceChat> {
                       controller: _scrollController,
                     );
                   } else {
-                    return Center(child: Text("No message here yet..."));
+                    return Center(
+                        child: Text(
+                      "No message here yet...",
+                      style: TextStyle(color: Colors.black),
+                    ));
                   }
                 } else {
                   return Center(

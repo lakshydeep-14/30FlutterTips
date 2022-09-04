@@ -119,7 +119,12 @@ class _ImageChatState extends State<ImageChat> {
           Column(
             children: [
               buildListMessage(),
-              isLoading ? Text("Uploading...") : buildInput(),
+              isLoading
+                  ? Text(
+                      "Uploading...",
+                      style: TextStyle(color: Colors.black),
+                    )
+                  : buildInput(),
             ],
           ),
         ],
@@ -258,7 +263,11 @@ class _ImageChatState extends State<ImageChat> {
                       controller: _scrollController,
                     );
                   } else {
-                    return Center(child: Text("No message here yet..."));
+                    return Center(
+                        child: Text(
+                      "No message here yet...",
+                      style: TextStyle(color: Colors.black),
+                    ));
                   }
                 } else {
                   return Center(

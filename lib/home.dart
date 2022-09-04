@@ -7,9 +7,11 @@ import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
 import 'package:flutter_30_tips/tips7/textformValidation.dart';
 import 'package:flutter_30_tips/tips8/showCase.dart';
+import 'package:flutter_30_tips/tips9/webView.dart';
 import 'package:get/get.dart';
 
 final Color mainColor = Color(0xff8e412e);
+bool isDarkTheme = false;
 
 final List<TIPS> tipsList = [
   TIPS(label: "1", title: "Search In Flutter", go: SearchScreen()),
@@ -38,6 +40,7 @@ final List<TIPS> tipsList = [
       go: SearchSuggestion()),
   TIPS(label: "7", title: "TextFormField Validation", go: TextFormValidation()),
   TIPS(label: "8", title: "TextTheme In Flutter", go: MyWidget()),
+  TIPS(label: "9", title: "Web-View In Flutter", go: WebViewWid()),
 ];
 
 class Home extends StatefulWidget {
@@ -97,14 +100,16 @@ class _HomeState extends State<Home> {
 AppBar customAppBar(String title, {bool back = true}) {
   return AppBar(
       toolbarHeight: back ? 60 : 100,
-      backgroundColor: mainColor,
+      backgroundColor: isDarkTheme ? mainColor.withOpacity(0.1) : mainColor,
       automaticallyImplyLeading: back,
       centerTitle: true,
       title: Text(
         title,
         textAlign: TextAlign.center,
         style: TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
+            color: isDarkTheme ? mainColor : Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 25),
       ));
 }
 
