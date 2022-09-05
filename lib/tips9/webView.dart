@@ -30,7 +30,7 @@ class _WebViewWidState extends State<WebViewWid> {
                 icon: FontAwesomeIcons.medium),
             _wid(
                 url: "https://linkedin.com/in/lakshydeep-14",
-                label: "Medium",
+                label: "LinkedIN",
                 icon: FontAwesomeIcons.linkedin),
             _wid(
                 url: "https://github.com/lakshydeep-14",
