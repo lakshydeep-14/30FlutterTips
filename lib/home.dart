@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_30_tips/tips1/tips1.dart';
+import 'package:flutter_30_tips/tips10/urlview.dart';
 import 'package:flutter_30_tips/tips2/userList.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
@@ -41,6 +42,7 @@ final List<TIPS> tipsList = [
   TIPS(label: "7", title: "TextFormField Validation", go: TextFormValidation()),
   TIPS(label: "8", title: "TextTheme In Flutter", go: MyWidget()),
   TIPS(label: "9", title: "Web-View In Flutter", go: WebViewWid()),
+  TIPS(label: "10", title: "Url launcher In Flutter", go: URLLauncherWid()),
 ];
 
 class Home extends StatefulWidget {
