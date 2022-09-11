@@ -49,6 +49,7 @@ dependencies:
   url_launcher: ^6.1.5
   pdf: ^3.8.2
   printing:
+  is_first_run: ^1.0.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

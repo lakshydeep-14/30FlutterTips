@@ -5,6 +5,7 @@ import 'package:flutter_30_tips/tips1/tips1.dart';
 import 'package:flutter_30_tips/tips10/urlview.dart';
 import 'package:flutter_30_tips/tips11/pdfView.dart';
 import 'package:flutter_30_tips/tips12/responsive.dart';
+import 'package:flutter_30_tips/tips13/isfirstRun.dart';
 import 'package:flutter_30_tips/tips2/userList.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
@@ -48,6 +49,7 @@ final List<TIPS> tipsList = [
   TIPS(label: "11", title: "PDF Preview and Print In Flutter", go: PDFView()),
   TIPS(
       label: "12", title: "Responsiveness In Flutter", go: ResponsivenessWid()),
+  TIPS(label: "13", title: "Is First Run In Flutter", go: IsFirstWidget()),
 ];
 
 class Home extends StatefulWidget {
