@@ -58,7 +58,7 @@ final List<TIPS> tipsList = [
       go: ResizeImageWidget()),
   TIPS(
       label: "15",
-      title: "Send Message To WhatsApp Group In Flutter",
+      title: "Send Message To WhatsApp Contacts & Groups In Flutter",
       go: WhatsAppChat()),
 ];
 

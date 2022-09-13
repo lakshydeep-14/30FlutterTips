@@ -15,6 +15,7 @@ class WhatsAppChat extends StatefulWidget {
 }
 
 class _WhatsAppChatState extends State<WhatsAppChat> {
+  //edit groupLink and numberWithCode firsr
   String groupLink = ""; //https://chat.whatsapp.com/HMudsgtHEzS7xLmHrN8El/
   String numberWithCode = ""; //https://wa.me/9779812345678/
   void wa(String host) async {
