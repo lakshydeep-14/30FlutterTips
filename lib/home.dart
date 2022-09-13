@@ -7,6 +7,7 @@ import 'package:flutter_30_tips/tips11/pdfView.dart';
 import 'package:flutter_30_tips/tips12/responsive.dart';
 import 'package:flutter_30_tips/tips13/isfirstRun.dart';
 import 'package:flutter_30_tips/tips14/resizeImage.dart';
+import 'package:flutter_30_tips/tips15/wa.dart';
 import 'package:flutter_30_tips/tips2/userList.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
@@ -55,6 +56,10 @@ final List<TIPS> tipsList = [
       label: "14",
       title: "Resize and crop Image In Flutter",
       go: ResizeImageWidget()),
+  TIPS(
+      label: "15",
+      title: "Send Message To WhatsApp Group In Flutter",
+      go: WhatsAppChat()),
 ];
 
 class Home extends StatefulWidget {
