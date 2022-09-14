@@ -8,6 +8,7 @@ import 'package:flutter_30_tips/tips12/responsive.dart';
 import 'package:flutter_30_tips/tips13/isfirstRun.dart';
 import 'package:flutter_30_tips/tips14/resizeImage.dart';
 import 'package:flutter_30_tips/tips15/wa.dart';
+import 'package:flutter_30_tips/tips16/focusNode.dart';
 import 'package:flutter_30_tips/tips2/userList.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
@@ -60,6 +61,7 @@ final List<TIPS> tipsList = [
       label: "15",
       title: "Send Message To WhatsApp Contacts & Groups In Flutter",
       go: WhatsAppChat()),
+  TIPS(label: "16", title: "FocusNode In Flutter", go: FocusNodeWid()),
 ];
 
 class Home extends StatefulWidget {
