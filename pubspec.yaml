@@ -52,6 +52,7 @@ dependencies:
   is_first_run: ^1.0.0
   flutter_native_image: ^0.0.6+1
   share_plus: ^4.1.0
+  confetti: ^0.7.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
