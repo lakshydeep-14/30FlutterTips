@@ -28,11 +28,6 @@ class _StepprWidState extends State<StepprWid> {
         ),
         child: Stepper(
           currentStep: index,
-          // onStepContinue: () {
-          //   setState(() {
-          //     index++;
-          //   });
-          // },
           type: StepperType.horizontal,
           elevation: 0,
           onStepTapped: (int a) {
