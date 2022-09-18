@@ -11,6 +11,7 @@ import 'package:flutter_30_tips/tips15/wa.dart';
 import 'package:flutter_30_tips/tips16/focusNode.dart';
 import 'package:flutter_30_tips/tips17/celebration.dart';
 import 'package:flutter_30_tips/tips18/zoomWid.dart';
+import 'package:flutter_30_tips/tips19/stepperWid.dart';
 import 'package:flutter_30_tips/tips2/userList.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
@@ -66,6 +67,7 @@ final List<TIPS> tipsList = [
   TIPS(label: "16", title: "FocusNode In Flutter", go: FocusNodeWid()),
   TIPS(label: "17", title: "Celebration In Flutter", go: Celebration()),
   TIPS(label: "18", title: "Zoom In Flutter", go: ZoomWid()),
+  TIPS(label: "19", title: "Stepper In Flutter", go: StepprWid()),
 ];
 
 class Home extends StatefulWidget {
