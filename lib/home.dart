@@ -13,6 +13,7 @@ import 'package:flutter_30_tips/tips17/celebration.dart';
 import 'package:flutter_30_tips/tips18/zoomWid.dart';
 import 'package:flutter_30_tips/tips19/stepperWid.dart';
 import 'package:flutter_30_tips/tips2/userList.dart';
+import 'package:flutter_30_tips/tips20/scroll.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
 import 'package:flutter_30_tips/tips7/textformValidation.dart';
@@ -68,6 +69,7 @@ final List<TIPS> tipsList = [
   TIPS(label: "17", title: "Celebration In Flutter", go: Celebration()),
   TIPS(label: "18", title: "Zoom In Flutter", go: ZoomWid()),
   TIPS(label: "19", title: "Stepper In Flutter", go: StepprWid()),
+  TIPS(label: "20", title: "Silver AppBar In Flutter", go: ScrollWidget()),
 ];
 
 class Home extends StatefulWidget {
