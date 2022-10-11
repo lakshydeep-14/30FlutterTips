@@ -15,6 +15,7 @@ import 'package:flutter_30_tips/tips19/stepperWid.dart';
 import 'package:flutter_30_tips/tips2/userList.dart';
 import 'package:flutter_30_tips/tips20/scroll.dart';
 import 'package:flutter_30_tips/tips21/crearefolder.dart';
+import 'package:flutter_30_tips/tips22/write_files.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
 import 'package:flutter_30_tips/tips7/textformValidation.dart';
@@ -75,6 +76,10 @@ final List<TIPS> tipsList = [
       label: "21",
       title: "Create Folder & Files In Flutter",
       go: CreateFolderScreen()),
+  TIPS(
+      label: "22",
+      title: "Write To and Read From Files In Flutter",
+      go: WriteFileScreen()),
 ];
 
 class Home extends StatefulWidget {
