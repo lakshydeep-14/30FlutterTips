@@ -62,13 +62,8 @@ class _WriteFileScreenState extends State<WriteFileScreen> {
                     backgroundColor: MaterialStateProperty.all(mainColor)),
                 onPressed: () async {
                   if (await Permission.manageExternalStorage.isGranted) {
-                    var b = await File(
-                            "/storage/emulated/0/30FlutterTips/tips22.dart")
+                    await File("/storage/emulated/0/30FlutterTips/tips22.dart")
                         .readAsString();
-
-                    setState(() {
-                      res = b;
-                    });
                   } else {
                     await Permission.manageExternalStorage.request();
                   }
