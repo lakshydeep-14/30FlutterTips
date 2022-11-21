@@ -55,6 +55,7 @@ dependencies:
   confetti: ^0.7.0
   zoom_widget: ^0.2.1
   shimmer:
+  dropdown_button2: ^1.7.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

@@ -18,6 +18,7 @@ import 'package:flutter_30_tips/tips21/crearefolder.dart';
 import 'package:flutter_30_tips/tips22/write_files.dart';
 import 'package:flutter_30_tips/tips23/tips23.dart';
 import 'package:flutter_30_tips/tips24/shimmer_effect.dart';
+import 'package:flutter_30_tips/tips25/tips25.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
 import 'package:flutter_30_tips/tips7/textformValidation.dart';
@@ -84,6 +85,7 @@ final List<TIPS> tipsList = [
       go: WriteFileScreen()),
   TIPS(label: "23", title: "Rotation In Flutter", go: Tips23()),
   TIPS(label: "24", title: "Shimmer Effect In Flutter", go: ShimmerEffect()),
+  TIPS(label: "25", title: "Searchable DropDown In Flutter", go: Tips25()),
 ];
 
 class Home extends StatefulWidget {
