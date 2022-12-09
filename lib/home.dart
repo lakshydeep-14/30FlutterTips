@@ -20,6 +20,7 @@ import 'package:flutter_30_tips/tips23/tips23.dart';
 import 'package:flutter_30_tips/tips24/shimmer_effect.dart';
 import 'package:flutter_30_tips/tips25/tips25.dart';
 import 'package:flutter_30_tips/tips26/tips26.dart';
+import 'package:flutter_30_tips/tips27/tips27.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
 import 'package:flutter_30_tips/tips7/textformValidation.dart';
@@ -89,8 +90,9 @@ final List<TIPS> tipsList = [
   TIPS(label: "25", title: "Searchable DropDown In Flutter", go: Tips25()),
   TIPS(
       label: "26",
-      title: "Move Widget Up When Keyboard Appears In Flutter",
+      title: "Move Widget Up When Keyboard Appears In Flutter",
       go: Tips26()),
+  TIPS(label: "27", title: "Pie Chart and Bar Graph In Flutter", go: Tips27()),
 ];
 
 class Home extends StatefulWidget {
