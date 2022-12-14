@@ -23,6 +23,7 @@ import 'package:flutter_30_tips/tips26/tips26.dart';
 import 'package:flutter_30_tips/tips27/tips27.dart';
 import 'package:flutter_30_tips/tips28/tips28.dart';
 import 'package:flutter_30_tips/tips29/tips29.dart';
+import 'package:flutter_30_tips/tips30/tips30.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
 import 'package:flutter_30_tips/tips7/textformValidation.dart';
@@ -95,8 +96,12 @@ final List<TIPS> tipsList = [
       title: "Move Widget Up When Keyboard Appears In Flutter",
       go: Tips26()),
   TIPS(label: "27", title: "Pie Chart and Bar Graph In Flutter", go: Tips27()),
-  TIPS(label: "28", title: "Numeral System In Flutter", go: Tips28()),
-  TIPS(label: "29", title: "Pagination In Flutter", go: Tips29()),
+  TIPS(label: "28", title: "Numeral System In Flutter", go: Tips28()),
+  TIPS(label: "29", title: "Pagination In Flutter", go: Tips29()),
+  TIPS(
+      label: "30",
+      title: "Persistant Bottom Navigation Bar In Flutter",
+      go: Tips30()),
 ];
 
 class Home extends StatefulWidget {
