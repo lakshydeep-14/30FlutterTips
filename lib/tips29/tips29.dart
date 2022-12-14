@@ -26,7 +26,7 @@ class _Tips29State extends State<Tips29> {
   }
 
   fetch() async {
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(Duration(seconds: 3));
     if (list.length != 50) {
       List<int> _int = List.generate(5, (i) => list.length + i + 1);
       //API Calls
@@ -70,7 +70,11 @@ class _Tips29State extends State<Tips29> {
                     "No More Dara",
                     style: context.text.headline2,
                   ))
-                : const CircularProgressIndicator();
+                : Center(
+                    child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CircularProgressIndicator(),
+                  ));
           }
         },
       ),
