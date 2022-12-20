@@ -14,10 +14,25 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   bool _isLoading = false;
-  List<QueryDocumentSnapshot> _results = [];
+  List<QueryDocumentSnapshot> results = [];
   bool _init = true;
-  int _queryMinLen = 4;
+  int queryMinLen = 4;
+  QuerySnapshot<Map<String, dynamic>>? _list;
   String query = '';
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadList();
+  }
+
+  loadList() async {
+    var data = await FirebaseFirestore.instance.collection('searchList').get();
+    // you can use here api in similar way
+    setState(() {
+      _list = data;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +42,10 @@ class _SearchScreenState extends State<SearchScreen> {
         resizeToAvoidBottomInset: false,
         body: Column(
           children: [
-            _searchBar(),
+            SearchBar(),
             Expanded(
               child: SingleChildScrollView(
-                child: _getbody(),
+                child: ResultBody(),
               ),
             ),
           ],
@@ -39,46 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Widget _getbody() {
-    if (_isLoading) return Center(child: CircularProgressIndicator());
-    if (_init) {
-      return Padding(
-        padding: const EdgeInsets.all(50.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Icon(Icons.search),
-            Text(
-              'Enter Search Term',
-              style: TextStyle(color: Colors.black),
-            )
-          ],
-        ),
-      );
-    }
-    if (_results.isEmpty) {
-      return Padding(
-        padding: const EdgeInsets.all(50),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Item Not Found!',
-                style: TextStyle(color: Colors.black),
-              ),
-              Text(
-                'Try searching again',
-                style: TextStyle(color: Colors.black),
-              ),
-            ]),
-      );
-    }
-    return SearchBody(result: _results);
-  }
-
-  Widget _searchBar() {
+  Widget SearchBar() {
     return Container(
       height: 55,
       width: double.infinity,
@@ -124,12 +100,12 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                       onChanged: (value) async {
                         query = value;
-                        if (value.isEmpty) _results.clear();
-
-                        if (value.length >= _queryMinLen) {
+                        if (value.isEmpty) results.clear();
+                        results.clear();
+                        if (value.length >= queryMinLen) {
                           if (_init) _init = false;
                           toggleLoading();
-                          await getSearchResult();
+                          await getSearchResult(value);
                           toggleLoading();
                         }
                       },
@@ -159,16 +135,12 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Future<void> getSearchResult() async {
-    _results.clear();
-    var data = await FirebaseFirestore.instance
-        .collection('searchList')
-        .get(); // you can use here api in similar way
-    for (var e in data.docs) {
-      if (e['name'].toString().toLowerCase().contains(query.toLowerCase())) {
-        _results.add(e);
-      }
-    }
+  Future<void> getSearchResult(String val) async {
+    results.clear();
+    results.addAll(_list!.docs
+        .where((e) =>
+            e['name'].toString().toLowerCase().contains(val.toLowerCase()))
+        .toList());
 
     setState(() {});
   }
@@ -177,6 +149,45 @@ class _SearchScreenState extends State<SearchScreen> {
     setState(() {
       _isLoading = !_isLoading;
     });
+  }
+
+  Widget ResultBody() {
+    if (_isLoading) return Center(child: CircularProgressIndicator());
+    if (_init) {
+      return Padding(
+        padding: const EdgeInsets.all(50.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(Icons.search),
+            Text(
+              'Enter Search Term',
+              style: TextStyle(color: Colors.black),
+            )
+          ],
+        ),
+      );
+    }
+    if (results.isEmpty) {
+      return Padding(
+        padding: const EdgeInsets.all(50),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Item Not Found!',
+                style: TextStyle(color: Colors.black),
+              ),
+              Text(
+                'Try searching again',
+                style: TextStyle(color: Colors.black),
+              ),
+            ]),
+      );
+    }
+    return SearchBody(result: results);
   }
 }
 
@@ -191,11 +202,10 @@ class SearchBody extends StatelessWidget {
         padding: EdgeInsets.all(20),
         physics: NeverScrollableScrollPhysics(),
         itemCount: result.length,
-        //separatorBuilder: (context, index) => Divider(),
         itemBuilder: (_, i) {
           return ListTile(
             title: Text(
-              result[i]['name'],
+              result[i]['name'] + " -  " + result[i].id.toString(),
               style: TextStyle(color: Colors.black),
             ),
           );
