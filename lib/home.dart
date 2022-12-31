@@ -24,6 +24,7 @@ import 'package:flutter_30_tips/tips27/tips27.dart';
 import 'package:flutter_30_tips/tips28/tips28.dart';
 import 'package:flutter_30_tips/tips29/tips29.dart';
 import 'package:flutter_30_tips/tips30/tips30.dart';
+import 'package:flutter_30_tips/tips31/tips31.dart';
 import 'package:flutter_30_tips/tips5/online.dart';
 import 'package:flutter_30_tips/tips6/searchSuggestion.dart';
 import 'package:flutter_30_tips/tips7/textformValidation.dart';
@@ -102,6 +103,7 @@ final List<TIPS> tipsList = [
       label: "30",
       title: "Persistant Bottom Navigation Bar In Flutter",
       go: Tips30()),
+  TIPS(label: "31", title: "Fetch Images from Firebase Storage", go: Tips31()),
 ];
 
 class Home extends StatefulWidget {
