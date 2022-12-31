@@ -125,16 +125,18 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   }
 
   _incomingMSG(String a) {
-    return Align(
-      alignment: (Alignment.topLeft),
-      child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: mainColor.withOpacity(0.18)),
-        padding: const EdgeInsets.fromLTRB(18, 9, 18, 9),
-        child: Text(
-          a,
-          style: TextStyle(fontSize: 12, color: Color(0xff8A8A8A)),
+    return Expanded(
+      child: Align(
+        alignment: (Alignment.topLeft),
+        child: Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: mainColor.withOpacity(0.18)),
+          padding: const EdgeInsets.fromLTRB(18, 9, 18, 9),
+          child: Text(
+            a,
+            style: TextStyle(fontSize: 12, color: Color(0xff8A8A8A)),
+          ),
         ),
       ),
     );
@@ -175,17 +177,20 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   }
 
   _outgoingMSG(String a) {
-    return Align(
-      alignment: Alignment.topRight,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: mainColor,
-        ),
-        padding: const EdgeInsets.fromLTRB(18, 9, 18, 9),
-        child: Text(
-          a,
-          style: TextStyle(fontSize: 12, color: Colors.white),
+    return Expanded(
+      child: Align(
+        alignment: Alignment.topRight,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: mainColor,
+          ),
+          padding: const EdgeInsets.fromLTRB(18, 9, 18, 9),
+          child: Text(
+            a,
+            style: TextStyle(fontSize: 12, color: Colors.white),
+            maxLines: 100,
+          ),
         ),
       ),
     );
@@ -249,14 +254,12 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  isLastMessageLeft(index)
-                      ? Material(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(18),
-                          ),
-                          clipBehavior: Clip.hardEdge,
-                          child: Container(color: mainColor),
+                  !isLastMessageLeft(index)
+                      ? Icon(
+                          Icons.account_circle,
+                          size: 35,
                         )
                       : Container(width: 35),
                   _incomingMSG(messageChat.content)
