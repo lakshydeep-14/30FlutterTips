@@ -7,7 +7,7 @@ class AudioController extends GetxController {
       isRecording = false.obs,
       isSending = false.obs,
       isUploading = false.obs;
-  int _currentId = -1;
+  final _currentId = 999999.obs;
   final start = DateTime.now().obs;
   final end = DateTime.now().obs;
   String _total = "";
@@ -19,7 +19,7 @@ class AudioController extends GetxController {
   bool get isRecordPlaying => _isRecordPlaying.value;
   bool get isRecordingValue => isRecording.value;
   late final AudioPlayerService _audioPlayerService;
-  int get currentId => _currentId;
+  int get currentId => _currentId.value;
   @override
   void onInit() {
     _audioPlayerService = AudioPlayerAdapter();
@@ -63,37 +63,19 @@ class AudioController extends GetxController {
   }
 
   void onPressedPlayButton(int id, var content) async {
-    _currentId = id;
+    _currentId.value = id;
     if (isRecordPlaying) {
       await _pauseRecord();
     } else {
-      await _loadRecord(id, content);
+      _isRecordPlaying.value = true;
+      await _audioPlayerService.play(content);
     }
-  }
-
-  Future<void> _loadRecord(
-    int id,
-    String url,
-  ) async {
-    _currentId = id;
-
-    await _playRecord(url);
   }
 
   calcDuration() {
     var a = end.value.difference(start.value).inSeconds;
     format(Duration d) => d.toString().split('.').first.padLeft(8, "0");
     _total = format(Duration(seconds: a));
-  }
-
-  Future<void> _playRecord(var a) async {
-    _isRecordPlaying.value = true;
-    await _audioPlayerService.play(a);
-  }
-
-  Future<void> _resumeRecord() async {
-    _isRecordPlaying.value = true;
-    await _audioPlayerService.resume();
   }
 
   Future<void> _pauseRecord() async {
@@ -149,18 +131,18 @@ class AudioPlayerAdapter implements AudioPlayerService {
 }
 
 class AudioDuration {
-  static double calculate(Duration _soundDuration) {
-    if (_soundDuration.inSeconds > 60) {
+  static double calculate(Duration soundDuration) {
+    if (soundDuration.inSeconds > 60) {
       return 70.w;
-    } else if (_soundDuration.inSeconds > 50) {
+    } else if (soundDuration.inSeconds > 50) {
       return 65.w;
-    } else if (_soundDuration.inSeconds > 40) {
+    } else if (soundDuration.inSeconds > 40) {
       return 60.w;
-    } else if (_soundDuration.inSeconds > 30) {
+    } else if (soundDuration.inSeconds > 30) {
       return 55.w;
-    } else if (_soundDuration.inSeconds > 20) {
+    } else if (soundDuration.inSeconds > 20) {
       return 50.w;
-    } else if (_soundDuration.inSeconds > 10) {
+    } else if (soundDuration.inSeconds > 10) {
       return 45.w;
     } else {
       return 40.w;

@@ -1,10 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'dart:io';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_30_tips/tips3/image.dart';
@@ -72,13 +69,13 @@ class _VoiceChatState extends State<VoiceChat> {
   }
 
   void stopRecord() async {
-    bool s = RecordMp3.instance.stop();
+    bool stop = RecordMp3.instance.stop();
     audioController.end.value = DateTime.now();
     audioController.calcDuration();
-    var a = AudioPlayer();
-    await a.play(AssetSource("Notification.mp3"));
-    a.onPlayerComplete.listen((a) {});
-    if (s) {
+    var ap = AudioPlayer();
+    await ap.play(AssetSource("Notification.mp3"));
+    ap.onPlayerComplete.listen((a) {});
+    if (stop) {
       audioController.isRecording.value = false;
       audioController.isSending.value = true;
       await uploadAudio();
@@ -314,9 +311,9 @@ class _VoiceChatState extends State<VoiceChat> {
                     GestureDetector(
                       child: Icon(Icons.mic, color: mainColor),
                       onLongPress: () async {
-                        var a = AudioPlayer();
-                        await a.play(AssetSource("Notification.mp3"));
-                        a.onPlayerComplete.listen((a) {
+                        var audioPlayer = AudioPlayer();
+                        await audioPlayer.play(AssetSource("Notification.mp3"));
+                        audioPlayer.onPlayerComplete.listen((a) {
                           audioController.start.value = DateTime.now();
                           startRecord();
                           audioController.isRecording.value = true;
@@ -340,7 +337,9 @@ class _VoiceChatState extends State<VoiceChat> {
                       onSendMessage(messageController.text, TypeMessage.text),
                 ),
               ),
-              hintText: "Your message...",
+              hintText: audioController.isSending.value
+                  ? "Recording audio..."
+                  : "Your message...",
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 10, vertical: 15),
               hintStyle: TextStyle(color: Color(0xff8A8A8A), fontSize: 15),
@@ -405,19 +404,25 @@ class _VoiceChatState extends State<VoiceChat> {
     );
   }
 
-  Widget _audio(var a, bool b, int id, String name, String duration) {
+  Widget _audio({
+    required String message,
+    required bool isCurrentUser,
+    required int index,
+    required String time,
+    required String duration,
+  }) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.5,
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: b ? mainColor : mainColor.withOpacity(0.18),
+        color: isCurrentUser ? mainColor : mainColor.withOpacity(0.18),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         children: [
           GestureDetector(
             onTap: () {
-              audioController.onPressedPlayButton(id, a);
+              audioController.onPressedPlayButton(index, message);
               // changeProg(duration: duration);
             },
             onSecondaryTap: () {
@@ -426,14 +431,14 @@ class _VoiceChatState extends State<VoiceChat> {
             },
             child: Obx(
               () => (audioController.isRecordPlaying &&
-                      audioController.currentId == id)
+                      audioController.currentId == index)
                   ? Icon(
                       Icons.cancel,
-                      color: b ? Colors.white : mainColor,
+                      color: isCurrentUser ? Colors.white : mainColor,
                     )
                   : Icon(
                       Icons.play_arrow,
-                      color: b ? Colors.white : mainColor,
+                      color: isCurrentUser ? Colors.white : mainColor,
                     ),
             ),
           ),
@@ -450,9 +455,12 @@ class _VoiceChatState extends State<VoiceChat> {
                       minHeight: 5,
                       backgroundColor: Colors.grey,
                       valueColor: AlwaysStoppedAnimation<Color>(
-                        b ? Colors.white : mainColor,
+                        isCurrentUser ? Colors.white : mainColor,
                       ),
-                      value: audioController.completedPercentage.value,
+                      value: (audioController.isRecordPlaying &&
+                              audioController.currentId == index)
+                          ? audioController.completedPercentage.value
+                          : audioController.totalDuration.value.toDouble(),
                     ),
                   ],
                 ),
@@ -464,7 +472,8 @@ class _VoiceChatState extends State<VoiceChat> {
           ),
           Text(
             duration,
-            style: TextStyle(fontSize: 12, color: b ? Colors.white : mainColor),
+            style: TextStyle(
+                fontSize: 12, color: isCurrentUser ? Colors.white : mainColor),
           ),
         ],
       ),
@@ -495,11 +504,11 @@ class _VoiceChatState extends State<VoiceChat> {
                 ),
               if (messageChat.type == TypeMessage.audio)
                 _audio(
-                    messageChat.content,
-                    messageChat.idFrom == currentUserId,
-                    index,
-                    messageChat.timestamp.toString(),
-                    messageChat.duration.toString())
+                    message: messageChat.content,
+                    isCurrentUser: messageChat.idFrom == currentUserId,
+                    index: index,
+                    time: messageChat.timestamp.toString(),
+                    duration: messageChat.duration.toString())
             ],
           ),
         );
@@ -527,11 +536,11 @@ class _VoiceChatState extends State<VoiceChat> {
                     ImageContainer(messageChat: messageChat),
                   if (messageChat.type == TypeMessage.audio)
                     _audio(
-                        messageChat.content,
-                        messageChat.idFrom == currentUserId,
-                        index,
-                        messageChat.timestamp.toString(),
-                        messageChat.duration.toString())
+                        message: messageChat.content,
+                        isCurrentUser: messageChat.idFrom == currentUserId,
+                        index: index,
+                        time: messageChat.timestamp.toString(),
+                        duration: messageChat.duration.toString())
                 ],
               ),
 
