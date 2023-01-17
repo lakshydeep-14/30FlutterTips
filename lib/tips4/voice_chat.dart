@@ -337,7 +337,7 @@ class _VoiceChatState extends State<VoiceChat> {
                       onSendMessage(messageController.text, TypeMessage.text),
                 ),
               ),
-              hintText: audioController.isSending.value
+              hintText: audioController.isRecording.value
                   ? "Recording audio..."
                   : "Your message...",
               contentPadding:
