@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_30_tips/home.dart';
-import 'package:flutter_30_tips/main.dart';
 
 class SearchSuggestion extends StatefulWidget {
   const SearchSuggestion({Key? key}) : super(key: key);
@@ -12,11 +11,15 @@ class SearchSuggestion extends StatefulWidget {
 class _SearchSuggestionState extends State<SearchSuggestion> {
   String? selected;
   final List<String> _suggestion = [
+    "Follow GO WITH FLUTTER",
+    "Like",
+    "Share",
+    "Subscribe",
     'Lakshydeep',
     'Vikram',
     'Rishi',
     'Medium',
-    "30FlutterTipsWithLakshydeepVikram"
+    "30FlutterTips"
   ];
   @override
   Widget build(BuildContext context) {
@@ -26,12 +29,13 @@ class _SearchSuggestionState extends State<SearchSuggestion> {
         child: Padding(
           padding: const EdgeInsets.all(40.0),
           child: Autocomplete(
+            
             fieldViewBuilder:
                 ((context, textEditingController, focusNode, onFieldSubmitted) {
               return TextFormField(
                 controller: textEditingController,
                 focusNode: focusNode,
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 onFieldSubmitted: (value) => onFieldSubmitted,
                 decoration: InputDecoration(
                     hintText: "Search and see suggestion",
@@ -44,17 +48,17 @@ class _SearchSuggestionState extends State<SearchSuggestion> {
                 return const Iterable<String>.empty();
               }
 
-              final List<String> _result = [];
+              final List<String> result = [];
               for (var e in _suggestion) {
                 if (e
                     .toString()
                     .toLowerCase()
                     .contains(textEditingValue.text.toLowerCase())) {
-                  _result.add(e.toString());
+                  result.add(e.toString());
                 }
               }
 
-              return _result;
+              return result;
             },
             onSelected: (selection) {
               //debugPrint('You just selected $selection');
