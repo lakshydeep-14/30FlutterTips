@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_30_tips/home.dart';
 
 class Online extends StatefulWidget {
@@ -39,7 +38,7 @@ class _OnlineState extends State<Online> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: customAppBar("Tips 5"),
-        body: Center(
+        body: const Center(
             child: Text(
           "Online",
           style: TextStyle(color: Colors.black),
