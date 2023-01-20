@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_30_tips/home.dart';
 
 class TextFormValidation extends StatefulWidget {
@@ -14,9 +12,9 @@ class TextFormValidation extends StatefulWidget {
 class _TextFormValidationState extends State<TextFormValidation> {
   String? requiredText(
     String? value, {
-    String message = 'Type \"#30flutterTips\"',
+    String message = 'Subscribe @gowithflutter in YT',
   }) {
-    if (value == null || value.trim().isEmpty || value != "#30flutterTips") {
+    if (value == null || value.trim().isEmpty || value != "@gowithflutter") {
       return message;
     }
     return null;
@@ -35,7 +33,7 @@ class _TextFormValidationState extends State<TextFormValidation> {
             validator: (value) => requiredText(value),
             cursorHeight: 36,
             style: const TextStyle(
-                fontSize: 36,
+                fontSize: 15,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 1.5,
                 color: Colors.black),
