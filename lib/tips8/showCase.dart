@@ -14,51 +14,60 @@ class _MyWidgetState extends State<MyWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar("Tips 8"),
-      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(
-          "Follow",
-          style: context.text.headline1,
-        ),
-        Text(
-          " #30FlutterTipsWithLakshydeepVikram",
-          style: context.text.headline2!
-              .copyWith(fontFamily: GoogleFonts.poppins().fontFamily),
-        ),
-        Text(
-          " #30FlutterTipsWithLakshydeepVikram",
-          style: context.text.headline3!.copyWith(
-              color: mainColor.withOpacity(0.89),
-              fontFamily: GoogleFonts.sansita().fontFamily),
-        ),
-        Text(
-          " #30FlutterTipsWithLakshydeepVikram",
-          style: context.text.headline4,
-        ),
-        Text(
-          " On",
-          style: context.text.headline4,
-        ),
-        Text(
-          "   GitHub   ",
-          style: context.text.headline4!
-              .copyWith(fontFamily: GoogleFonts.newTegomin().fontFamily),
-        ),
-        Text(
-          " Medium",
-          style: context.text.headline4!
-              .copyWith(fontFamily: GoogleFonts.newTegomin().fontFamily),
-        ),
-        Text(
-          " LinkedIN",
-          style: context.text.headline4!
-              .copyWith(fontFamily: GoogleFonts.newTegomin().fontFamily),
-        ),
-        Text(
-          " @lakshydeep-14",
-          style: context.text.headline4!
-              .copyWith(fontFamily: GoogleFonts.newTegomin().fontFamily),
-        ),
-      ]),
+      body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Text(
+                "Follow and Subscribe",
+                style: context.text.headline3,
+              ),
+            ),
+            Text(
+              " @gowithFlutter",
+              style: context.text.headline1!.copyWith(
+                  color: mainColor.withOpacity(0.89),
+                  fontFamily: GoogleFonts.sansita().fontFamily),
+            ),
+            Text(
+              " on",
+              style: context.text.headline1,
+            ),
+            Text(
+              " YouTube",
+              style: context.text.headline2,
+            ),
+            Text(
+              " #30FlutterTips",
+              style: context.text.headline2!
+                  .copyWith(fontFamily: GoogleFonts.poppins().fontFamily),
+            ),
+            Text(
+              " On",
+              style: context.text.headline4,
+            ),
+            Text(
+              "   GitHub   ",
+              style: context.text.headline4!
+                  .copyWith(fontFamily: GoogleFonts.newTegomin().fontFamily),
+            ),
+            Text(
+              " Medium",
+              style: context.text.headline4!
+                  .copyWith(fontFamily: GoogleFonts.newTegomin().fontFamily),
+            ),
+            Text(
+              " LinkedIN",
+              style: context.text.headline4!
+                  .copyWith(fontFamily: GoogleFonts.newTegomin().fontFamily),
+            ),
+            Text(
+              " @lakshydeep-14",
+              style: context.text.headline4!
+                  .copyWith(fontFamily: GoogleFonts.newTegomin().fontFamily),
+            ),
+          ]),
     );
   }
 }

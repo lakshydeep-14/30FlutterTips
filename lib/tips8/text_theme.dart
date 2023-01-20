@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyle {
   AppTextStyle._();
-  static TextTheme get textTheme => TextTheme(
-        headline1: _headline1.copyWith(color: mainColor),
-        headline2: _headline2.copyWith(color: mainColor),
-        headline3: _headline3.copyWith(color: mainColor),
-        headline4: _headline4.copyWith(color: mainColor),
-        headline5: _headline5.copyWith(color: mainColor),
+  static TextTheme get lightTextTheme => TextTheme(
+        headline1: _headline1,
+        headline2: _headline2,
+        headline3: _headline3,
+        headline4: _headline4,
+        headline5: _headline5,
       );
 
   static TextStyle get _baseHeadline => TextStyle(
@@ -39,4 +39,16 @@ class AppTextStyle {
         fontSize: 18,
         fontWeight: FontWeight.w500,
       );
+}
+
+class AppTheme {
+  AppTheme._();
+
+  static ThemeData light() {
+    return ThemeData.light().copyWith(
+      brightness: Brightness.light,
+      scaffoldBackgroundColor: Colors.white,
+      textTheme: AppTextStyle.lightTextTheme,
+    );
+  }
 }
