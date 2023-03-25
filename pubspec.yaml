@@ -34,7 +34,7 @@ dependencies:
   confetti: ^0.7.0
   cupertino_icons: ^1.0.2
   dropdown_button2: ^1.7.0
-  firebase_core: ^1.21.1
+  firebase_core: ^2.5.0
   firebase_storage: null
   flutter:
     sdk: flutter
@@ -42,24 +42,24 @@ dependencies:
   fluttertoast: ^8.0.9
   font_awesome_flutter: ^10.1.0
   get: null
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.3
   image_picker: ^0.8.5+3
-  intl: ^0.17.0
+  intl: ^0.18.0
   is_first_run: ^1.0.0
-  numeral_system: ^1.0.0
+  numeral_system: ^2.0.0+1
   path_provider: null
   pdf: ^3.8.2
   permission_handler: ^10.0.0
   pie_chart: null
   printing: null
   record_mp3: ^3.0.0
-  share_plus: ^4.1.0
+  share_plus: ^6.3.1
   shimmer: null
   sizer: null
   syncfusion_flutter_charts: null
   url_launcher: ^6.1.5
-  webview_flutter: ^3.0.4
-  zoom_widget: ^0.2.1
+  webview_flutter: ^4.0.2
+  zoom_widget: ^2.0.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

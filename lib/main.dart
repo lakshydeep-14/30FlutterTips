@@ -20,9 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData().copyWith(
-        textTheme: AppTextStyle.textTheme,
-      ),
+      theme: AppTheme.light(),
       home: Home(),
     );
   }

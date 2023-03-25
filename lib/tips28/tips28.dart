@@ -33,7 +33,7 @@ class _Tips28State extends State<Tips28> {
               child: NumeralSystem(
                 numberSystem: NumberSystem.international,
                 digit: 987387659876,
-                afterDecimalDigits: 3,
+                //afterDecimalDigits: 3,
                 textStyle: context.text.headline3!.copyWith(
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.poppins().fontFamily),
@@ -42,7 +42,7 @@ class _Tips28State extends State<Tips28> {
             NumeralSystem(
               numberSystem: NumberSystem.international,
               digit: 987387676,
-              afterDecimalDigits: 2,
+              //afterDecimalDigits: 2,
               textStyle: context.text.headline3!.copyWith(
                   fontWeight: FontWeight.bold,
                   fontFamily: GoogleFonts.poppins().fontFamily),
@@ -50,7 +50,7 @@ class _Tips28State extends State<Tips28> {
             NumeralSystem(
               numberSystem: NumberSystem.international,
               digit: 987376,
-              afterDecimalDigits: 1,
+              //digitAfterDecimal: 1,
               textStyle: context.text.headline3!.copyWith(
                   fontWeight: FontWeight.bold,
                   fontFamily: GoogleFonts.poppins().fontFamily),
@@ -68,7 +68,7 @@ class _Tips28State extends State<Tips28> {
             NumeralSystem(
               numberSystem: NumberSystem.indian,
               digit: 9873876576,
-              afterDecimalDigits: 5,
+              //afterDecimalDigits: 5,
               textStyle: context.text.headline3!.copyWith(
                   fontWeight: FontWeight.bold,
                   fontFamily: GoogleFonts.poppins().fontFamily),
@@ -76,7 +76,7 @@ class _Tips28State extends State<Tips28> {
             NumeralSystem(
               numberSystem: NumberSystem.indian,
               digit: 9876576,
-              afterDecimalDigits: 5,
+              //afterDecimalDigits: 5,
               textStyle: context.text.headline3!.copyWith(
                   fontWeight: FontWeight.bold,
                   fontFamily: GoogleFonts.poppins().fontFamily),
@@ -84,7 +84,7 @@ class _Tips28State extends State<Tips28> {
             NumeralSystem(
               numberSystem: NumberSystem.indian,
               digit: 98876576,
-              afterDecimalDigits: 5,
+              //afterDecimalDigits: 5,
               textStyle: context.text.headline3!.copyWith(
                   fontWeight: FontWeight.bold,
                   fontFamily: GoogleFonts.poppins().fontFamily),

@@ -27,7 +27,7 @@ class _ZoomWidState extends State<ZoomWid> {
         enableScroll: true,
         doubleTapZoom: true,
         zoomSensibility: 2.3,
-        initZoom: 0.5,
+        //initZoom: 0.5,
         child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
