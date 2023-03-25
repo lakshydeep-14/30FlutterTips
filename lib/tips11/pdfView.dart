@@ -44,7 +44,9 @@ class _PDFViewState extends State<PDFView> {
     );
     pdf.addPage(
       pdfWid.Page(
-        pageFormat: format,
+        pageFormat: PdfPageFormat((80 * (72.0 / 25.4)), 600,
+            marginAll: 5 * (72.0 / 25.4)),
+        //pageFormat: format,
         build: (context) {
           return pdfWid.SizedBox(
             width: double.infinity,
