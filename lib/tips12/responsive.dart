@@ -1,11 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_30_tips/home.dart';
+import 'package:flutter_30_tips/tips12/responsive_builder_screen.dart';
 import 'package:flutter_30_tips/tips8/showCase.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'layout_builder_screen.dart';
 
 class ResponsivenessWid extends StatefulWidget {
   const ResponsivenessWid({Key? key}) : super(key: key);
@@ -53,21 +55,65 @@ class _ResponsivenessWidState extends State<ResponsivenessWid> {
           height: 0.1 * MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           color: mainColor,
+          child: Center(child: Text('0.1* MediaQuery by height')),
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: Container(
+                  color: Colors.red,
+                  height: 100,
+                  child: _responsive("Expanded")),
+            ),
+            Flexible(
+              child: Container(
+                  color: Colors.yellow,
+                  height: 100,
+                  child: _responsive("Flexible")),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Expanded(
+              flex: 2,
+              child: Container(
+                  color: Colors.red,
+                  height: 100,
+                  child: _responsive("Expanded")),
+            ),
+            Flexible(
+              child: Container(
+                  color: Colors.yellow,
+                  height: 100,
+                  child: _responsive("Flexible")),
+            ),
+          ],
         ),
         AspectRatio(
           aspectRatio: 16 / 4,
           child: Container(
-            child: _responsive("Aspectratio 16/4"),
             color: mainColor.withOpacity(0.5),
+            child: _responsive("Aspectratio 16/4"),
           ),
         ),
         AspectRatio(
           aspectRatio: 5 / 4,
           child: Container(
-            child: _responsive("Aspectratio 5/4"),
             color: mainColor.withOpacity(0.75),
+            child: _responsive("Aspectratio 5/4"),
           ),
-        )
+        ),
+        ElevatedButton(
+            onPressed: () {
+              Get.to(() => LayoutBuilderScreen());
+            },
+            child: Text("Layout Builder")),
+        ElevatedButton(
+            onPressed: () {
+              Get.to(() => ResScreen());
+            },
+            child: Text("Responsive Builder"))
       ]),
     );
   }
