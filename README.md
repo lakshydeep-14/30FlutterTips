@@ -1,4 +1,4 @@
-# 30FlutterTips With LakshydeepVikram
+# Top 30 Amazing Flutter Tips With Lakshydeep Vikram
 
 <img src="/fluttertips.png" alt="flutter"  height="500" />
 
